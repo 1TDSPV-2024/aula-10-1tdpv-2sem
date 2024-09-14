@@ -33,14 +33,14 @@ export default function EditarProdutos() {
 
   useEffect(() => {
        const p = lista.find((prod) => prod.id == Number(id));
-       setProduto(p);
-        if(isModal){
+      
+        if(isModal && p){
+        setProduto(p);
           currentDialog.current?.showModal();
         }else{
           currentDialog.current?.close();
         }
-  }, [isModal]);
-
+  }, [isModal,id,produto,currentDialog,lista]);
 
   const handleSubmit = (e:React.FormEvent) => {
     e.preventDefault();
